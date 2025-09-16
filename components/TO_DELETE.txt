@@ -1,0 +1,10 @@
+Remove the following game-related files and folders:
+- components/games/
+- components/GameLauncher.tsx
+- components/GamesSection.tsx
+- types/game.ts
+- lib/constants.ts (if only game constants)
+- Any game-related code in app/games/
+- Any game-related images in public/
+
+This is a placeholder for tracking.
