@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import styles from './IrishLuckGame.module.css';
 
 export default function IrishLuckGame() {
@@ -11,13 +11,13 @@ export default function IrishLuckGame() {
     const [currentBet, setCurrentBet] = useState(0.20);
     const [isSpinning, setIsSpinning] = useState(false);
     const [freeSpins, setFreeSpins] = useState(0);
-    const [currentMultiplier, setCurrentMultiplier] = useState(1);
+    const [currentMultiplier] = useState(1); // setCurrentMultiplier removed (unused)
     const [reels, setReels] = useState<string[]>(Array(15).fill('🍀'));
     const [winAmount, setWinAmount] = useState(0);
     const [winningPositions, setWinningPositions] = useState<number[]>([]);
     const [notification, setNotification] = useState<string | null>(null);
 
-    const symbols = ['🍀', '🎩', '🌈', '🍯', '💎', '🔥', '💰', '⭐', '🎵', '💖'];
+    const symbols = useMemo(() => ['🍀', '🎩', '🌈', '🍯', '💎', '🔥', '💰', '⭐', '🎵', '💖'], []);
 
     const createReels = useCallback(() => {
         const newReels = Array(15).fill(null).map(() => 
@@ -49,7 +49,7 @@ export default function IrishLuckGame() {
 
     const checkWins = (symbols: string[]) => {
         let totalWin = 0;
-        let positions: number[] = [];
+        const positions: number[] = [];
         // Check horizontal lines
         for (let row = 0; row < 3; row++) {
             const start = row * 5;
