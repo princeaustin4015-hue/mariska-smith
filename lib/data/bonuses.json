@@ -1,0 +1,88 @@
+[
+  {
+    "id": "1",
+    "title": "100% Signup Bonus",
+    "description": "Start your journey in style!",
+    "icon": "💥",
+    "details": "New Players Only | First Deposit",
+    "action": "Claim Now",
+    "highlight": "100%",
+    "badge": "HOT",
+    "gradient": "from-yellow-500 via-orange-500 to-red-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2025-12-02T10:35:39.459Z",
+    "path": "",
+    "imageUrl": ""
+  },
+  {
+    "id": "2",
+    "title": "30% Daily Bonus",
+    "description": "Boost your balance daily!",
+    "icon": "🔥",
+    "details": "Available Daily | Boost Your Wins",
+    "action": "Get Bonus",
+    "highlight": "30%",
+    "badge": "DAILY",
+    "gradient": "from-red-500 via-orange-500 to-yellow-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "$20 Referral Bonus",
+    "description": "Earn while sharing the fun!",
+    "icon": "💸",
+    "details": "Per Referral | Share & Earn",
+    "action": "Refer Now",
+    "highlight": "$20",
+    "gradient": "from-green-500 via-emerald-500 to-teal-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "4",
+    "title": "50% Weekly Bonus",
+    "description": "Keep the winning vibe alive!",
+    "icon": "💖",
+    "details": "Weekly Promotion | Max Bonus",
+    "action": "Claim Bonus",
+    "highlight": "50%",
+    "badge": "WEEKLY",
+    "gradient": "from-pink-500 via-rose-500 to-red-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "5",
+    "title": "20% Regular Bonus",
+    "description": "Get your daily boost every day!",
+    "icon": "⭐",
+    "details": "Available Daily | Regular Players",
+    "action": "Claim Daily",
+    "highlight": "20%",
+    "badge": "REGULAR",
+    "gradient": "from-blue-500 via-indigo-500 to-purple-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "6",
+    "title": "$5 Freeplay",
+    "description": "Play for free and win real rewards!",
+    "icon": "🎮",
+    "details": "No Deposit Required | Instant Access",
+    "action": "Get Freeplay",
+    "highlight": "$5",
+    "badge": "FREE",
+    "gradient": "from-cyan-500 via-blue-500 to-indigo-500",
+    "isActive": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  }
+]
+
