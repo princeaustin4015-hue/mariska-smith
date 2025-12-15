@@ -44,9 +44,9 @@ export default function LeaderboardSection() {
   return (
     <section
       id="leaderboard"
-      className="py-12 sm:py-16 md:py-20 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 relative overflow-hidden scroll-mt-20"
       style={{
-        backgroundImage: "url('/feature section photo.webp')",
+        backgroundImage: "url('/feature section photo.jpg')",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -66,11 +66,11 @@ export default function LeaderboardSection() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 text-center font-cursive px-2">
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg,#ff7a00,#ffb300,#ffd24a)' }}>
-                Leaderboard & Giveaways
+                Leaderboard & Tokens
               </span>
             </h2>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4 font-medium font-serif">
-              Compete for the top spots and win amazing prizes in our exciting giveaways
+              Compete for top spots and earn tokens in arcade games
             </p>
           </motion.div>
           

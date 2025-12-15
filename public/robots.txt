@@ -2,9 +2,9 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin/
 Disallow: /api/
 
 # Sitemap (update with your production domain)
 Sitemap: https://yourdomain.com/sitemap.xml
+
 

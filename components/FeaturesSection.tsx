@@ -66,9 +66,9 @@ function DownloadGamesSection() {
   return (
     <section
       id="download-games"
-      className="py-12 sm:py-16 md:py-20 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 relative overflow-hidden scroll-mt-20"
       style={{
-        backgroundImage: "url('/feature section photo.webp')",
+        backgroundImage: "url('/feature section photo.jpg')",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -80,7 +80,7 @@ function DownloadGamesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 roomy-copy">
         <div className="relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center font-cursive px-2">
-            Download Games
+            Arcade Games
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {GAMES.map((game) => (
@@ -103,7 +103,7 @@ function DownloadGamesSection() {
                   )}
                 </div>
                 <div className="text-white text-xs sm:text-sm md:text-base font-bold mb-1 sm:mb-2 font-cursive text-center leading-tight px-1">
-                  {game.name}
+                  {game.code.toUpperCase()}
                 </div>
                 <button
                   onClick={() => handleDownload(game.url)}

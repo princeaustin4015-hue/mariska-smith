@@ -3,29 +3,11 @@ import Navigation from '@/components/Navigation'
 import { Hero } from '@/components/ui/hero'
 
 // Dynamic imports for better code splitting
-const GamesSection = dynamic(() => import('@/components/GamesSection'), {
-  loading: () => <div className="min-h-[400px]" />,
-  ssr: true
-})
-
-const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'), {
-  loading: () => <div className="min-h-[400px]" />,
-  ssr: true
-})
-
-const LeaderboardSection = dynamic(() => import('@/components/LeaderboardSection'), {
-  loading: () => <div className="min-h-[400px]" />,
-  ssr: true
-})
-
-const ReviewsSection = dynamic(() => import('@/components/ReviewsSection'), {
-  loading: () => <div className="min-h-[400px]" />,
-  ssr: true
-})
-
-const Footer = dynamic(() => import('@/components/Footer'), {
-  ssr: true
-})
+const GamesSection = dynamic(() => import('@/components/GamesSection'), { ssr: true })
+const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'), { ssr: true })
+const LeaderboardSection = dynamic(() => import('@/components/LeaderboardSection'), { ssr: true })
+const ReviewsSection = dynamic(() => import('@/components/ReviewsSection'), { ssr: true })
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: true })
 
 export default function Home() {
   return (
@@ -33,16 +15,16 @@ export default function Home() {
       <Navigation />
       <main className="min-h-screen bg-[#0b0604]">
         <Hero
-          title="Level Up Your Gaming Journey"
-          subtitle="Discover games, tournaments & exclusive rewards"
+          title="Where Skill Meets Rewards"
+          subtitle="Earn credits, collect tokens & claim bonuses"
           actions={[
             {
               label: "Join Now",
-              href: "https://www.facebook.com/share/17dubonS1y/",
+              href: "https://www.facebook.com/share/16imCG9Jhw/",
               variant: "outline"
             },
             {
-              label: "Explore Offers",
+              label: "Claim Bonuses",
               href: "#games",
               variant: "default"
             }

@@ -10,33 +10,33 @@ interface Review {
 
 const DUMMY_REVIEWS: Review[] = [
   {
-    name: 'Erica',
-    review: 'The welcome bonus was incredible! I got $500 on my first deposit and the games are so much fun. Fire Kirin and Orion Star are my favorites!',
+    name: 'Erica M.',
+    review: 'Been playing for 3 months now and I love it! The daily bonuses are legit and I\'ve earned so many credits. GV and OS are my go-to games. Customer support is quick too when I had questions.',
     rating: 5,
   },
   {
     name: 'Tom Steel',
-    review: 'Best gaming platform I\'ve found! The bonuses keep coming and the game selection is amazing. Cash Machine and Vegas Strip are top notch!',
+    review: 'Best arcade platform I\'ve found honestly. The token system is fair and bonuses actually work. I\'ve claimed the weekly bonus 4 times already. Highly recommend trying JC and FK!',
     rating: 5,
   },
   {
-    name: 'Tree jim',
-    review: 'Love the variety of games available! The download process was super easy and the bonuses are generous. Game Vault and Juwa City are fantastic!',
+    name: 'Tree J.',
+    review: 'Started last week and already got $5 free credits! The games load fast and the bonus claiming process is super simple. My friends are all joining now after I showed them.',
     rating: 5,
   },
   {
     name: 'Jen Hoggatt',
-    review: 'The bonus offers section is amazing! I claimed multiple bonuses and they all worked perfectly. Panda Master and Milky Way app are so entertaining!',
+    review: 'I\'ve tried a lot of platforms but this one stands out. The referral bonus is great - got $20 just from sharing with 2 friends. The arcade games are fun and credits add up fast!',
     rating: 5,
   },
   {
-    name: 'Ab sylve',
-    review: 'Great bonuses and even better games! The platform is smooth and the rewards are real. High Roller and Casino Royal exceeded my expectations!',
+    name: 'Ab Sylve',
+    review: 'The daily bonuses keep me coming back. I play MW and CM regularly and the tokens I earn are real. No issues with withdrawals either. Solid platform overall.',
     rating: 5,
   },
   {
-    name: 'Tony jr',
-    review: 'The game bonuses are unbeatable! I\'ve tried almost all the games and each one is unique. Fish Thunder and Blue Dragon are absolutely thrilling!',
+    name: 'Tony Jr',
+    review: 'Love how easy it is to claim bonuses. I check daily for the 30% bonus and it\'s always there. The games are smooth and I\'ve never had any technical problems. 5 stars!',
     rating: 5,
   },
 ]
@@ -46,9 +46,9 @@ function ReviewsSection() {
   return (
     <section
       id="reviews"
-      className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden scroll-mt-20"
       style={{
-        backgroundImage: `linear-gradient(135deg, #1a1207cc 0%, #3a2a0acc 60%, #ffd70033 100%), url('/review background.webp')`,
+        backgroundImage: `linear-gradient(135deg, #1a1207cc 0%, #3a2a0acc 60%, #ffd70033 100%), url('/review background.jpg')`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -74,7 +74,7 @@ function ReviewsSection() {
       ></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 roomy-copy relative z-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-200 mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center font-cursive drop-shadow-lg px-2">
-          What Players Say
+          User Reviews
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
           {reviews.map((review, i) => (

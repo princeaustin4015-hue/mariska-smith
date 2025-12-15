@@ -1,15 +1,12 @@
 
 'use client'
 
-import { useEffect, useState, useCallback, useMemo } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { BonusOffer } from '@/lib/types/bonus'
 
 export default function GamesSection() {
-  const router = useRouter()
   const [bonuses, setBonuses] = useState<BonusOffer[]>([])
-  const [loading, setLoading] = useState(true)
 
   const fetchBonuses = useCallback(async () => {
     try {
@@ -27,8 +24,6 @@ export default function GamesSection() {
       }
       // Fallback to empty array if API fails
       setBonuses([])
-    } finally {
-      setLoading(false)
     }
   }, [])
 
@@ -36,12 +31,10 @@ export default function GamesSection() {
     fetchBonuses()
   }, [fetchBonuses])
 
-  const BONUS_OFFERS = useMemo(() => bonuses, [bonuses])
-
   return (
     <section
       id="games"
-      className="py-12 sm:py-16 md:py-20 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 relative overflow-hidden scroll-mt-20"
       style={{
         backgroundImage: "url('/game section bg.webp')",
         backgroundPosition: 'center',
@@ -57,15 +50,15 @@ export default function GamesSection() {
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 text-center font-cursive px-2">
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg,#ff7a00,#ffb300,#ffd24a)' }}>
-                Bonus and Offers
+                Bonuses & Credits
               </span>
             </h2>
             <p className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4 font-medium font-serif">
-              Discover amazing bonuses and exclusive offers designed to enhance your gaming experience
+              Claim bonuses, earn credits and tokens by playing arcade games
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {BONUS_OFFERS.map((offer, idx) => (
+            {bonuses.map((offer, idx) => (
               <div
                 key={`offer-${idx}`}
                 className="relative group bg-gradient-to-br from-[#19110a] to-[#0f0a06] rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 border border-[rgba(255,210,74,0.3)] shadow-xl hover:shadow-[0_0_40px_rgba(255,179,0,0.4)] transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-1 flex flex-col overflow-hidden"
@@ -130,12 +123,14 @@ export default function GamesSection() {
                   </div>
 
                   {/* Action Button */}
-                  <button
-                    onClick={() => offer.path ? router.push(offer.path) : null}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 active:scale-95 text-black px-4 py-3 sm:px-5 sm:py-3 md:px-6 md:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-bold transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-500/50 group-hover:shadow-2xl touch-manipulation font-cursive min-h-[44px] flex items-center justify-center"
+                  <a
+                    href="https://www.facebook.com/share/16imCG9Jhw/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 active:scale-95 text-black px-4 py-3 sm:px-5 sm:py-3 md:px-6 md:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-bold transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-500/50 group-hover:shadow-2xl touch-manipulation font-cursive min-h-[44px] flex items-center justify-center text-center"
                   >
-                    {offer.action || 'Claim Offer'}
-                  </button>
+                    {offer.action || 'Claim Bonus'}
+                  </a>
                 </div>
 
                 {/* Shine effect on hover */}

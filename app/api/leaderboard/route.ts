@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getLeaderboardItems } from '@/lib/utils/leaderboard-storage'
 
 export async function GET() {
@@ -23,5 +23,3 @@ export async function GET() {
     )
   }
 }
-
-

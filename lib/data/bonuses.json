@@ -2,10 +2,10 @@
   {
     "id": "1",
     "title": "100% Signup Bonus",
-    "description": "Start your journey in style!",
+    "description": "Start playing arcade games and get bonus credits!",
     "icon": "💥",
-    "details": "New Players Only | First Deposit",
-    "action": "Claim Now",
+    "details": "New Players Only | Bonus Credits",
+    "action": "Claim Bonus",
     "highlight": "100%",
     "badge": "HOT",
     "gradient": "from-yellow-500 via-orange-500 to-red-500",
@@ -18,9 +18,9 @@
   {
     "id": "2",
     "title": "30% Daily Bonus",
-    "description": "Boost your balance daily!",
+    "description": "Earn bonus credits daily by playing arcade games!",
     "icon": "🔥",
-    "details": "Available Daily | Boost Your Wins",
+    "details": "Available Daily | Bonus Credits",
     "action": "Get Bonus",
     "highlight": "30%",
     "badge": "DAILY",
@@ -32,9 +32,9 @@
   {
     "id": "3",
     "title": "$20 Referral Bonus",
-    "description": "Earn while sharing the fun!",
+    "description": "Earn tokens and credits by referring friends!",
     "icon": "💸",
-    "details": "Per Referral | Share & Earn",
+    "details": "Per Referral | Earn Tokens",
     "action": "Refer Now",
     "highlight": "$20",
     "gradient": "from-green-500 via-emerald-500 to-teal-500",
@@ -45,9 +45,9 @@
   {
     "id": "4",
     "title": "50% Weekly Bonus",
-    "description": "Keep the winning vibe alive!",
+    "description": "Weekly bonus credits for arcade game players!",
     "icon": "💖",
-    "details": "Weekly Promotion | Max Bonus",
+    "details": "Weekly Promotion | Bonus Credits",
     "action": "Claim Bonus",
     "highlight": "50%",
     "badge": "WEEKLY",
@@ -59,7 +59,7 @@
   {
     "id": "5",
     "title": "20% Regular Bonus",
-    "description": "Get your daily boost every day!",
+    "description": "Get bonus credits every day by playing arcade games!",
     "icon": "⭐",
     "details": "Available Daily | Regular Players",
     "action": "Claim Daily",
@@ -72,11 +72,11 @@
   },
   {
     "id": "6",
-    "title": "$5 Freeplay",
-    "description": "Play for free and win real rewards!",
+    "title": "$5 Free Credits",
+    "description": "Get free credits to play arcade games!",
     "icon": "🎮",
-    "details": "No Deposit Required | Instant Access",
-    "action": "Get Freeplay",
+    "details": "No Deposit Required | Free Credits",
+    "action": "Get Credits",
     "highlight": "$5",
     "badge": "FREE",
     "gradient": "from-cyan-500 via-blue-500 to-indigo-500",
@@ -85,4 +85,3 @@
     "updatedAt": "2024-01-01T00:00:00Z"
   }
 ]
-

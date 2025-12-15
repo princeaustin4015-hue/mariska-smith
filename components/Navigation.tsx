@@ -1,28 +1,138 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null)
   const router = useRouter()
   const pathname = usePathname()
 
+  // Scroll to section with retry mechanism
+  const scrollToSection = useCallback((targetId: string, retries = 10, delay = 150) => {
+    const attemptScroll = (): boolean => {
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        // Wait for next frame to ensure layout is stable
+        requestAnimationFrame(() => {
+          const offset = 80 // Account for fixed navbar height
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset
+          const offsetPosition = Math.max(0, elementPosition - offset)
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          })
+        })
+        return true
+      }
+      return false
+    }
+
+    // Try immediately
+    if (attemptScroll()) {
+      return
+    }
+
+    // Retry with increasing delays to account for dynamic component loading
+    for (let i = 1; i <= retries; i++) {
+      setTimeout(() => {
+        attemptScroll()
+      }, delay * i)
+    }
+  }, [])
+
+  // Handle scrolling after navigation from other pages
+  useEffect(() => {
+    if (pendingScroll && pathname === '/') {
+      // Wait for page to fully render and all components to load
+      const attemptScroll = (): boolean => {
+        const targetElement = document.getElementById(pendingScroll)
+        if (targetElement) {
+          requestAnimationFrame(() => {
+            const offset = 80
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset
+            const offsetPosition = Math.max(0, elementPosition - offset)
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
+          })
+          setPendingScroll(null)
+          return true
+        }
+        return false
+      }
+
+      // Try multiple times with increasing delays to account for dynamic imports
+      let timers: NodeJS.Timeout[] = []
+      
+      // Try immediately
+      if (!attemptScroll()) {
+        // Retry with increasing delays to wait for dynamic components
+        timers = [
+          setTimeout(() => attemptScroll(), 100),
+          setTimeout(() => attemptScroll(), 250),
+          setTimeout(() => attemptScroll(), 500),
+          setTimeout(() => attemptScroll(), 750),
+          setTimeout(() => attemptScroll(), 1000),
+          setTimeout(() => attemptScroll(), 1500),
+          setTimeout(() => attemptScroll(), 2000)
+        ]
+      }
+
+      return () => {
+        timers.forEach(timer => clearTimeout(timer))
+      }
+    }
+  }, [pendingScroll, pathname])
+
+  // Handle URL hash on page load
+  useEffect(() => {
+    if (pathname === '/' && typeof window !== 'undefined') {
+      const hash = window.location.hash.substring(1)
+      if (hash && ['games', 'download-games', 'leaderboard', 'reviews'].includes(hash)) {
+        // Wait for page to be fully loaded and components rendered
+        const handleHashScroll = () => {
+          scrollToSection(hash)
+        }
+        
+        // Try immediately if page is already loaded
+        if (document.readyState === 'complete') {
+          // Give time for dynamic components to render
+          setTimeout(handleHashScroll, 200)
+        } else {
+          window.addEventListener('load', () => {
+            setTimeout(handleHashScroll, 200)
+          }, { once: true })
+        }
+        
+        // Also try after a delay to catch late-loading components
+        const delayedScroll = setTimeout(() => {
+          scrollToSection(hash)
+        }, 1500)
+        
+        return () => clearTimeout(delayedScroll)
+      }
+    }
+  }, [pathname, scrollToSection])
+
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsMobileMenuOpen(false)
     if (pathname === '/') {
       e.preventDefault()
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       })
-      setIsMobileMenuOpen(false)
     }
   }
 
   const navItems = [
-    { name: 'Bonuses', href: '#games', id: 'games' },
+    { name: 'Featured', href: '#games', id: 'games' },
     { name: 'Games', href: '#download-games', id: 'download-games' },
     { name: 'Leaderboard', href: '#leaderboard', id: 'leaderboard' },
     { name: 'Reviews', href: '#reviews', id: 'reviews' }
@@ -34,17 +144,19 @@ export default function Navigation() {
     
     if (href.startsWith('#')) {
       const targetId = href.substring(1)
-      const targetElement = document.getElementById(targetId)
       
-      if (targetElement) {
-        const offset = 80 // Account for fixed navbar height
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset
-        const offsetPosition = elementPosition - offset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+      // If we're on the home page, scroll directly
+      if (pathname === '/') {
+        // Use requestAnimationFrame for smoother scrolling
+        requestAnimationFrame(() => {
+          scrollToSection(targetId)
         })
+        // Update URL hash without triggering scroll
+        window.history.replaceState(null, '', `#${targetId}`)
+      } else {
+        // If we're on a different page, navigate to home first, then scroll
+        setPendingScroll(targetId)
+        router.push(`/#${targetId}`)
       }
     } else {
       router.push(href)
@@ -80,7 +192,7 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="https://www.facebook.com/share/17dubonS1y/"
+              href="https://www.facebook.com/share/16imCG9Jhw/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black px-4 py-2 rounded-lg text-sm font-bold font-cursive transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-500/50 min-h-[44px] flex items-center"
@@ -138,7 +250,7 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="https://www.facebook.com/share/17dubonS1y/"
+              href="https://www.facebook.com/share/16imCG9Jhw/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
