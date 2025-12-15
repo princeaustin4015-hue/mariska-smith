@@ -48,3 +48,5 @@ next-env.d.ts
 # uploads (user-uploaded content)
 /public/uploads/*
 !/public/uploads/.gitkeep
+
+.vercel
